@@ -1,0 +1,1 @@
+# Lógica de comparação e geração de relatório

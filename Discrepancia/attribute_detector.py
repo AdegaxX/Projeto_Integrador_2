@@ -1,0 +1,1 @@
+# Funções para identificar atributos (barba, óculos, etc.)

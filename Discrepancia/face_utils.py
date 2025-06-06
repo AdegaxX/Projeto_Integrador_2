@@ -1,0 +1,1 @@
+# Funções para detecção e embeddings faciais
