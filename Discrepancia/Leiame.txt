@@ -1,0 +1,122 @@
+# Discrepancia
+
+Este projeto verifica a diferença entre a foto do RG e uma selfie atual para:
+- Identificar mudanças faciais ao longo do tempo (como envelhecimento)
+- Sugerir se a pessoa deve atualizar sua foto no RG
+- Detectar atributos como idade aparente, gênero, raça, emoção predominante
+
+## 📁 Estrutura Principal:
+
+Discrepancia/
+├── app.py
+├── lote_com_relatorios.py
+├── face_utils.py
+├── attribute_detector.py
+├── evaluator.py
+├── images/
+│   ├── rg/
+│       ├── pessoa1.jpg
+│       ├── pessoa2.jpg
+│   └── selfie/
+│       ├── pessoa1.jpg
+│       ├── pessoa2.jpg
+└── relatorios/
+    ├── relatorio_joao.txt
+    ├── relatorio_maria.txt
+
+
+Instalar as dependências:
+pip install deepface opencv-python numpy
+
+Claro! Vamos fazer passo a passo **tudo que você precisa executar para que o código funcione corretamente** e gere os relatórios comparando as fotos de RG e selfie.
+
+---------------------------------------------------------------------------------------------
+
+## ✅ **Objetivo**
+
+Comparar várias imagens de RG e selfie para:
+
+* Medir discrepância facial (mudança ao longo do tempo)
+* Detectar se a pessoa está com acessórios (óculos, barba, etc.)
+* Gerar relatórios personalizados com recomendações
+
+---------------------------------------------------------------------------------------------
+
+
+## 🛠️ **Passo a passo completo para execução**
+
+---------------------------------------------------------------------------------------------
+
+### 📁 1. **Organize as imagens**
+
+Crie estas pastas dentro da pasta `Discrepancia`:
+
+```
+Discrepancia/
+├── images/
+│   ├── rg/
+│   │   ├── joao.jpg
+│   │   └── maria.jpg
+│   └── selfie/
+│       ├── joao.jpg
+│       └── maria.jpg
+```
+
+> ⚠️ Os nomes dos arquivos devem ser idênticos entre as pastas `rg/` e `selfie/`.
+
+---------------------------------------------------------------------------------------------
+
+### 📦 2. **Instale as bibliotecas necessárias**
+
+Abra o terminal, vá até a pasta do projeto, e execute:
+
+```bash
+pip install deepface opencv-python numpy
+```
+
+---------------------------------------------------------------------------------------------
+
+### 🧠 3. **Execute o script de análise em lote**
+
+Na pasta do projeto, execute:
+
+```bash
+python lote_com_relatorios.py
+```
+
+Esse script:
+
+* Lê as imagens da pasta `images/rg/` e `images/selfie/`
+* Compara RG x Selfie para cada pessoa
+* Detecta atributos (idade, gênero, óculos, barba, etc.)
+* Mede a discrepância entre as fotos
+* Salva o relatório personalizado na pasta `relatorios/` com nome `relatorio_joao.txt`, `relatorio_maria.txt`, etc.
+
+---------------------------------------------------------------------------------------------
+
+## 📄 **Exemplo de relatório gerado**
+
+```
+Discrepância facial: 0.4876
+
+Atributos detectados na selfie:
+- Idade aparente: 28
+- Gênero: Man
+- Emoção dominante: neutral
+- Raça predominante: white
+
+Recomendação:
+✅ A semelhança entre RG e selfie é aceitável.
+🕶️ Remova acessórios faciais (óculos, barba) se solicitado.
+```
+
+---------------------------------------------------------------------------------------------
+
+## 💡 Próximos passos (opcionais)
+
+* ✅ Gerar relatório em CSV com todos os dados
+* ✅ Marcar em vermelho quem precisa atualizar RG
+* ✅ Fazer upload automático para servidor, API ou banco
+* ✅ Criar uma interface gráfica simples (GUI)
+
+Se quiser seguir com um desses, posso montar também.
