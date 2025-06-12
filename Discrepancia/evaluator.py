@@ -1,6 +1,6 @@
 # Lógica de comparação e geração de relatório
 
-def avaliar_discrepancia(distancia, atributos, limiar=0.8):
+def avaliar_discrepancia(distancia, atributos, limiar=0.2):
     if distancia > limiar:
         if atributos:
             return "Diferença facial significativa. Remova: " + ", ".join(atributos)

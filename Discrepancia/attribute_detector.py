@@ -2,6 +2,7 @@
 
 from deepface import DeepFace
 
+
 def detect_attributes(img_path):
     try:
         result = DeepFace.analyze(img_path=img_path, actions=['age', 'gender', 'race', 'emotion', 'facial_feature'], enforce_detection=False)   # Se você confia que a imagem tem um rosto, mas o DeepFace está sendo exigente demais, pode desativar enforce_detection:
