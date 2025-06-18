@@ -10,3 +10,6 @@ def get_embeddings(img_path):
 
 def calculate_distance(emb1, emb2):
     return np.linalg.norm(emb1 - emb2)
+
+
+

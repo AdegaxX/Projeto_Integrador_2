@@ -9,3 +9,7 @@ def avaliar_discrepancia(distancia, atributos, limiar=0.2):
         if atributos:
             return "Rosto similar, mas considere remover: " + ", ".join(atributos)
         return "Foto válida, sem alterações necessárias."
+
+
+
+

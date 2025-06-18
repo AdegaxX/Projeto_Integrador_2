@@ -15,6 +15,11 @@ def detect_attributes(img_path):
             atributos.append("barba")  # isso é só um exemplo
         # Você pode usar heurísticas visuais ou bibliotecas como mediapipe para detalhes melhores
         return atributos
+
     except Exception as e:
         print(f"[Erro] Análise de atributos falhou: {e}")
         return []
+
+
+
+

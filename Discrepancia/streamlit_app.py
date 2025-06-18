@@ -1,7 +1,7 @@
 # Para abrir:
 # Digite no terminal: & "C:\Adegax\Ciência de dados - ADEGAS\5º semestre\Mineração de dados\.venv\Scripts\Activate.ps1"
-# Depois quando estiver no (.venv) digite: streamlit run streamlit_app.py
-
+# Depois quando estiver no (.venv) digite: streamlit run streamlit_app.py OU
+# streamlit run Projeto_integrador_2/Discrepancia/streamlit_app.py
 
 
 import streamlit as st
@@ -20,8 +20,8 @@ st.title("📸 Analisador de Discrepância entre RG e Selfie")
 st.markdown("Envie a foto do RG e uma selfie atual para verificar se você precisa atualizar a foto no documento ou remover acessórios.")
 
 # Uploads
-rg_image = st.file_uploader("📄 Envie a imagem do RG", type=["jpg", "jpeg", "png"])
-selfie_image = st.file_uploader("🤳 Envie sua selfie atual", type=["jpg", "jpeg", "png"])
+rg_image = st.file_uploader("Envie a imagem do RG", type=["jpg", "jpeg", "png"])
+selfie_image = st.file_uploader("Envie sua selfie atual", type=["jpg", "jpeg", "png"])
 
 if rg_image and selfie_image:
     with tempfile.TemporaryDirectory() as tmpdir:
@@ -52,3 +52,5 @@ if rg_image and selfie_image:
             st.error(f"Erro na análise: {str(e)}")
 else:
     st.info("Por favor, envie as duas imagens para iniciar a análise.")
+
+
