@@ -2,7 +2,7 @@
 
 from face_utils import get_embeddings, calculate_distance
 from attribute_detector import detect_attributes
-from evaluator import generate_report
+from evaluator import avaliar_discrepancia
 
 # Caminhos das imagens
 foto_rg = "images/rg.jpg"
@@ -19,5 +19,5 @@ discrepancia = calculate_distance(embedding_rg, embedding_selfie)
 atributos = detect_attributes(foto_atual)
 
 # Etapa 4: Gera e imprime relatório final
-relatorio = generate_report(discrepancia, atributos)
+relatorio = avaliar_discrepancia(discrepancia, atributos)
 print(relatorio)
