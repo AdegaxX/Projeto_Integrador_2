@@ -1,57 +1,36 @@
 import cv2
-from deepface import DeepFace
+from ultralytics import YOLO
 
-# Caminhos absolutos para evitar problemas com acentuação
-FACE_CASCADE_PATH = "C:/Adegax/haarcascade_frontalface_default.xml"
-EYE_CASCADE_PATH = "C:/Adegax/haarcascade_eye.xml"
+# Carrega modelo custom para acessórios faciais
+# model = YOLO('acessorios.pt')  # Usar esse se eu quiser treinar o modelo para detectar outras coisas
 
-# Carrega os classificadores Haarcascade
-face_cascade = cv2.CascadeClassifier(FACE_CASCADE_PATH)
-eye_cascade = cv2.CascadeClassifier(EYE_CASCADE_PATH)
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Download do modelo pré-treinado (modelo simples) precisa de treino
+model = YOLO('yolov8n.pt')
 
 
 def detect_attributes(img_path):
     atributos = []
 
-    # --- Análise com DeepFace ---
-    try:
-        result = DeepFace.analyze(
-            img_path=img_path,
-            actions=['age', 'gender', 'race', 'emotion'],
-            enforce_detection=False
-        )
+    # --- Leitura da imagem ---
+    img = cv2.imread(img_path)
+    img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-        analise = result[0] if isinstance(result, list) else result
-        idade = analise.get("age", 0)
-        genero = analise.get("gender", "")
+    # --- Inferência com YOLOv8 ---
+    results = model(img_rgb)
 
-        # Heurística simples para barba
-        if genero == "Man" and idade >= 20:
-            atributos.append("Barba (suposta)")
+    # --- Análise dos resultados ---
+    for r in results:
+        for box in r.boxes:
+            cls_id = int(box.cls[0])
+            conf = float(box.conf[0])
+            label = r.names[cls_id]
 
-    except Exception as e:
-        print(f"[Erro] Análise de atributos falhou (DeepFace): {e}")
-
-    # --- Detecção com OpenCV para óculos ---
-    try:
-        img = cv2.imread(img_path)
-        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-        faces = face_cascade.detectMultiScale(gray, 1.3, 5)
-
-        for (x, y, w, h) in faces:
-            roi_gray = gray[y:y + h, x:x + w]
-            roi_color = img[y:y + h, x:x + w]
-            eyes = eye_cascade.detectMultiScale(roi_gray)
-
-            if len(eyes) == 0:
-                atributos.append("Óculos escuros ou obstrução nos olhos")
-            elif len(eyes) == 1:
-                atributos.append("Possível óculos ou obstrução parcial")
-
-            break  # Analisa apenas o primeiro rosto encontrado
-
-    except Exception as e:
-        print(f"[Erro] Análise de atributos falhou (OpenCV): {e}")
+            # Filtro de confiança
+            if conf > 0.5:
+                if label == "person":
+                    continue  # ignora pessoa (autoexplicativo)
+                atributos.append(label)
 
     return atributos

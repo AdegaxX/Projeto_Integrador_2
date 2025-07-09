@@ -120,3 +120,8 @@ Recomendação:
 * ✅ Criar uma interface gráfica simples (GUI)
 
 Se quiser seguir com um desses, posso montar também.
+
+
+
+Site do Roboflow: treinar modelos
+Meu app: https://app.roboflow.com/join/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3b3Jrc3BhY2VJZCI6IjFQcGNwQUtLRnVOckVNM3V6SE43aDRveW5HOTMiLCJyb2xlIjoib3duZXIiLCJpbnZpdGVyIjoiY3JlZWRicjAwN0BnbWFpbC5jb20iLCJpYXQiOjE3NTIwNjcxMTZ9.3klgEjaDpGjBPs5CHX80Th8SRDdO4uVuIkoqwWc2LwY
