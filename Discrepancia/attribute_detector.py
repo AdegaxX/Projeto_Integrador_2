@@ -29,7 +29,7 @@ def detect_attributes(img_path):
 
             # Filtro de confiança
             if conf > 0.5:
-                if label == "person":
+                if label == "face":
                     continue  # ignora pessoa (autoexplicativo)
                 atributos.append(label)
 
