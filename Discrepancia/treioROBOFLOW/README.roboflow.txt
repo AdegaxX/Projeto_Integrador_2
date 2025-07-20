@@ -1,8 +1,8 @@
 
-detec_objetos - v3 2025-07-16 4:43pm
+detec_objetos - v4 2025-07-20 2:04pm
 ==============================
 
-This dataset was exported via roboflow.com on July 16, 2025 at 8:24 PM GMT
+This dataset was exported via roboflow.com on July 20, 2025 at 5:41 PM GMT
 
 Roboflow is an end-to-end computer vision platform that helps you
 * collaborate with your team on computer vision projects
@@ -17,7 +17,7 @@ visit https://github.com/roboflow/notebooks
 
 To find over 100k other datasets and pre-trained models, visit https://universe.roboflow.com
 
-The dataset includes 610 images.
+The dataset includes 515 images.
 Objects are annotated in YOLOv8 format.
 
 The following pre-processing was applied to each image:
@@ -26,6 +26,6 @@ The following pre-processing was applied to each image:
 
 The following augmentation was applied to create 3 versions of each source image:
 * Equal probability of one of the following 90-degree rotations: none, upside-down
-* Random Gaussian blur of between 0 and 4.1 pixels
+* Random Gaussian blur of between 0 and 3 pixels
 
 

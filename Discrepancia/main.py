@@ -1,23 +1,14 @@
-# Arquivo principal de execução
-
-from face_utils import get_embeddings, calculate_distance
 from attribute_detector import detect_attributes
-from evaluator import avaliar_discrepancia
+from face_metrics import compare_faces
+from face_landmarks import get_face_metrics
 
-# Caminhos das imagens
-foto_rg = "images/rg.jpg"
-foto_atual = "images/selfie.jpg"
+img_rg = "images/rg.jpg"
+img_selfie = "images/selfie.jpg"
 
-# Etapa 1: Gera embeddings faciais
-embedding_rg = get_embeddings(foto_rg)
-embedding_selfie = get_embeddings(foto_atual)
+atributos = detect_attributes(img_selfie)
+distancia = compare_faces(img_rg, img_selfie)
+metricas = get_face_metrics(img_selfie)
 
-# Etapa 2: Calcula distância entre as duas imagens
-discrepancia = calculate_distance(embedding_rg, embedding_selfie)
-
-# Etapa 3: Detecta atributos faciais na selfie
-atributos = detect_attributes(foto_atual)
-
-# Etapa 4: Gera e imprime relatório final
-relatorio = avaliar_discrepancia(discrepancia, atributos)
-print(relatorio)
+print(f"Acessórios detectados: {atributos}")
+print(f"Distância facial (vetorial): {distancia:.4f}")
+print(f"Métricas faciais: {metricas}")
