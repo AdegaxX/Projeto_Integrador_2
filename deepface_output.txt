@@ -1,0 +1,3 @@
+🔍 Comparando rostos com DeepFace...
+📏 Distância facial: 0.6771
+⚠️ A pessoa está diferente. Pode ser necessário refazer o RG.
