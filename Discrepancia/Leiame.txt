@@ -125,3 +125,18 @@ Se quiser seguir com um desses, posso montar também.
 
 Site do Roboflow: treinar modelos
 Meu app: https://app.roboflow.com/join/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3b3Jrc3BhY2VJZCI6IjFQcGNwQUtLRnVOckVNM3V6SE43aDRveW5HOTMiLCJyb2xlIjoib3duZXIiLCJpbnZpdGVyIjoiY3JlZWRicjAwN0BnbWFpbC5jb20iLCJpYXQiOjE3NTIwNjcxMTZ9.3klgEjaDpGjBPs5CHX80Th8SRDdO4uVuIkoqwWc2LwY
+
+Minha URL do meu modelo do Roboflow:
+https://app.roboflow.com/adegax/detec_objetos/models/detec_objetos/5
+
+
+Para o 'detect_backend':
+| Nome           | Descrição                                                                |
+| -------------- | ------------------------------------------------------------------------ |
+|  "opencv"      | Leve e rápido, mas menos preciso. Não requer GPU.                        |
+|  "retinaface"  | Muito preciso, bom para múltiplos rostos. Recomendado para produção.     |
+|  "ssd"         | Razoável e leve, baseado em Single Shot Detection.                       |
+|  "dlib"        | Funciona offline, com precisão moderada.                                 |
+|  "mtcnn"       | Detecta e alinha bem, porém mais lento.                                  |
+|  "mediapipe"   | Muito rápido e leve, boa opção para real-time (webcam).                  |
+|  "yolov8"      | Detecção via YOLOv8 (se configurado com ultralytics). Requer mais setup. |
