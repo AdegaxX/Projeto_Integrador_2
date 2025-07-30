@@ -13,11 +13,11 @@ def desenhar_deteccoes(image_np, model, confidence=0.7):
         classe = label.class_name
 
         color = {
-            "face": (0, 255, 0),
-            "hat": (255, 255, 0),
-            "glass": (255, 0, 255),
-            "bar": (0, 165, 255),
-            "mask": (255, 0, 0)
+            "face": (0, 255, 0),        # verde
+            "hat": (255, 255, 0),       # ciano
+            "glass": (255, 0, 255),     # lilás
+            "bar": (0, 165, 255),       # laranja
+            "mask": (255, 0, 0)         # vermelho
         }.get(classe.lower(), (200, 200, 200))
 
         cv2.rectangle(image_np, (x1, y1), (x2, y2), color, 3)

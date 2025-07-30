@@ -5,8 +5,8 @@ import supervision as sv
 from inference import get_model
 
 # Detecta e recorta a maior face
-def detectar_maior_face(image_np, model, margin=40):
-    result = model.infer(image_np, confidence=0.7)
+def detectar_maior_face(image_np, model, margin=20):
+    result = model.infer(image_np, confidence=0.5)
     detections = sv.Detections.from_inference(result[0])
 
     faces = []
@@ -29,7 +29,7 @@ def detectar_maior_face(image_np, model, margin=40):
 # Desenha todas as detecções e retorna as classes
 def desenhar_deteccoes(image_np, model):
     image_copy = image_np.copy()
-    result = model.infer(image_np, confidence=0.7)
+    result = model.infer(image_np, confidence=0.5)
     detections = sv.Detections.from_inference(result[0])
     classes_detectadas = []
 
@@ -115,10 +115,10 @@ if img1 and img2:
 
                 acessorios = [c for c in classes2 if c.lower() != "face"]
                 if acessorios:
-                    st.markdown("**Acessórios detectados:**")
+                    st.markdown("**Atributos detectados:**")
                     st.info(", ".join(set(acessorios)))
                 else:
-                    st.success("Nenhum acessório detectado.")
+                    st.success("Nenhum atributo detectado.")
 
         except Exception as e:
             st.error(f"Erro ao comparar rostos: {e}")
