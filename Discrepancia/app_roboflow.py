@@ -4,7 +4,7 @@ import numpy as np
 import supervision as sv
 from inference import get_model
 
-# Detecta e recorta a maior face
+# Detecta e recorta a face
 def detectar_maior_face(image_np, model, margin=20):
     result = model.infer(image_np, confidence=0.5)
     detections = sv.Detections.from_inference(result[0])
